@@ -1,17 +1,13 @@
-import { NextResponse } from "next/server";
+// middleware.js (โค้ดที่ถูกต้อง)
 
-// note: logger is not available in middleware, using console.log instead
+export { default } from "next-auth/middleware";
 
 export const config = {
-  matcher: ["/:path*"],
+  matcher: [
+    "/account/:path*",
+    "/admin/:path*",
+    "/auth/signout",
+    "/subscribe",
+    "/premium",
+  ],
 };
-
-export async function middleware(req) {
-  const path = req.nextUrl.pathname;
-
-  if (path !== "/") {
-    return NextResponse.redirect(new URL(path, "https://bio.chayapholsmile.shop"));
-  }
-
-  return NextResponse.next();
-}
