@@ -10,7 +10,7 @@ export async function middleware(req) {
   const path = req.nextUrl.pathname;
 
   if (path !== "/") {
-    return NextResponse.redirect(new URL(path, "https://github.com"));
+    return NextResponse.redirect(new URL(path, "https://bio.chayapholsmile.shop"));
   }
 
   return NextResponse.next();
